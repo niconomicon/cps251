@@ -21,12 +21,8 @@ class MainActivity : AppCompatActivity() {
                 setContentView(R.layout.activity_main)
     }
     fun convertCurrency(view: View) {
-        if (dollarText.text.isNotEmpty()) {
-            val dollarValue = dollarText.text.toString().toFloat()
-            val euroValue = dollarValue * 0.85f
-            textView.text = euroValue.toString()
-        } else {
+
             textView.text = getString(R.string.no_value_string)
-        }
+
     }
 }

@@ -13,4 +13,15 @@
     <string name="convert_string">Convert</string>
     <string name="dollars_hint">dollars</string>
     <string name="no_value_string">No Value</string>
+    <string name="LayoutText">This is my layout project</string>
+    <string name="button_1">Button 1</string>
+    <string name="button_3">Button 3</string>
+    <string name="button_2">Button 2</string>
+    <string name="checkbox_1">CheckBox 1</string>
+    <string name="sample">sample</string>
+    <string name="checkbox_6">CheckBox 6</string>
+    <string name="checkbox_5">CheckBox 5</string>
+    <string name="checkbox_4">CheckBox 4</string>
+    <string name="checkbox_3">CheckBox 3</string>
+    <string name="checkbox_2">CheckBox 2</string>
 </resources>
