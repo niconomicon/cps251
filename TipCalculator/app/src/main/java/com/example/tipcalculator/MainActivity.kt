@@ -21,9 +21,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_main)
 
         setSupportActionBar(binding.toolbar)
+
+
 
         /*val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
@@ -34,6 +36,8 @@ class MainActivity : AppCompatActivity() {
                 .setAction("Action", null).show()
         }*/
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -60,7 +64,6 @@ class MainActivity : AppCompatActivity() {
     fun convertCurrency(view: View) {
         if (binding.dollarText.text.isNotEmpty()) {
             val dollarValue = binding.dollarText.text.toString().toFloat()
-//            val euroValue = dollarValue * 0.85f
             val tenValue = dollarValue * 0.1f
             val fifValue = dollarValue * 0.15f
             val twentyValue = dollarValue * 0.2f
