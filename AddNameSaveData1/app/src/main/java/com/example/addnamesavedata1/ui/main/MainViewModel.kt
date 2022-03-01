@@ -7,11 +7,11 @@ class MainViewModel : ViewModel() {
 
 
     fun saveName(){
-        var userText = textView.text.toString()
-        textView4.setText(userText)
+        var userText = editTextName.text.toString()
+        var namesList = "First Name"
         //do something with text
-        var namesList = ""
         var newList = namesList + userText
+        textView.setText(newList)
         println(newList)
 
     }
