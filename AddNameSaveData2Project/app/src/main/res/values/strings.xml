@@ -1,0 +1,11 @@
+<!--<resources>
+    <string name="app_name">Add Name Save Data 2 Project</string>
+</resources>-->
+
+<resources>
+<string name="app_name">Add Name Save Data 2 Project</string>
+<string name="outputText">Text will appear here</string>
+<string name="inputText">Enter Text Here</string>
+    <string name="display_names">Display Names</string>
+    <string name="enter_name">Enter Name</string>
+</resources>
