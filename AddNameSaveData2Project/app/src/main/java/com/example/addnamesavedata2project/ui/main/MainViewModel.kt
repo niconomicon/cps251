@@ -21,9 +21,9 @@ class MainViewModel : ViewModel() {
     val names = arrayListOf<String>("Scott", "Karen", "Scottie", "Jazzy", "Oreo","Margaret","Jim","Danny","Michelle","Greg","Jackie","JACK","TYSON")
 
     //
-    var _result = MutableLiveData<String>().apply { value = "Nicole" }
-    val result: LiveData<String>
-        get() = _result
+    var inputText = MutableLiveData<String>().apply { value = "Nicole" }
+    val outputText: LiveData<String>
+        get() = outputText
     /*
     DISPLAYNAMES TAKES A RANDOM NAME FROM THE ARRAY AND SETS IT TO THE NAME VARIABLE ONCE IT IS THERE IT CALLS PAUSE WHICH PAUSES FOR 1 SECOND AND THEN CALLS DISPLAY NAMES AGAIN.  NOTICE THAT WHEN WE CHANGE THE VALUES OF NAMES THE UI DISPLAYS THE NEW VALUE (NAME) THAT IS BECAUSE THE OBSERVER IS SEEING THE CHANGE AND DISPLAYING IT.
      */
@@ -36,8 +36,9 @@ class MainViewModel : ViewModel() {
     }
 
     fun changeText(){
+    //    name.setValue(inputText.toString())
         name.setValue("Nicole")
-        _result.value = "Nicole"
+        inputText.value = "Nicole"
     }
 
     suspend fun pause(){
