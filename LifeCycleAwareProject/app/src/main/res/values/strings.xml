@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LifeCycleAwareProject</string>
+    <string name="mainfragment">MainFragment</string>
+    <string name="button">Button</string>
 </resources>

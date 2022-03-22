@@ -19,9 +19,11 @@ class DemoOwner: LifecycleOwner {
 
     fun stopOwner() {
         lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_STOP)
+
     }
     override fun getLifecycle(): Lifecycle {
         return lifecycleRegistry
     }
+
 
 }
