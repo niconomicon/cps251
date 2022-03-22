@@ -16,31 +16,6 @@ import com.example.lifecycleawareproject.DemoOwner
 import com.example.lifecycleawareproject.databinding.MainFragmentBinding
 import java.time.LocalDateTime
 
-/*
-class MainFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = MainFragment()
-    }
-
-    private lateinit var viewModel: MainViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
-}*/
-
-
 class MainFragment : Fragment() {
 
     companion object {
@@ -76,43 +51,16 @@ class MainFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
-        ///NEEDS WORK
 
-
-        /*
-        activity?.application?.let {
-            val factory = SavedStateViewModelFactory(it, this)
-
-            viewModel = ViewModelProvider(this, factory).get(MainViewModel::class.java)
-
-            val resultObserver = Observer<Float> { result ->
-                binding.resultText.text = result.toString()
-            }
-
-            viewModel.getResult().observe(viewLifecycleOwner, resultObserver)
-
-            binding.convertButton.setOnClickListener {
-                if (binding.dollarText.text.isNotEmpty()) {
-                    viewModel.setAmount(binding.dollarText.text.toString())
-                } else {
-                    binding.resultText.text = "No Value"
-                }
-            }
-        }
-        */
 
         //NEEDS WORK
 
-        /*if (binding.message.text.isNotEmpty()) {
-            viewModel.setAmount(binding.message.text.toString())
-        } else {*/
         //    binding.message.text = LocalDateTime.now().toString()
             //binding.message.text = LocalDateTime.now().toString()
            // binding.message.text = DemoObserver().logcatText
-            //binding.message.text = DemoObserver().logcatText
+            //binding.message.text = demoObserver.logInfo()
 
-
-      //  }
+      //NEEDS WORK
 
 
         lifecycle.addObserver(DemoObserver())
@@ -123,20 +71,11 @@ class MainFragment : Fragment() {
         demoOwner.stopOwner()
 
 
-
-       /* binding.showButton.setOnClickListener {
-            if (binding.message.text.isNotEmpty()) {
-                binding.message.text = "hello2?"+demoObserver.onResume().logcatInfo
-
-            } else {
-                binding.message.text = "Log info run at "+LocalDateTime.now().toString()
-            }
-        }*/
         demoObserver = DemoObserver()
         binding.message.text = demoObserver.logcatText
         println(demoObserver.logInfo())
 
-       // binding.message.text ="hello2?"+demoObserver.logInfo()
+       // binding.message.text ="hello?"+demoObserver.logInfo()
 
     }
 
