@@ -9,4 +9,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="textview">TextView</string>
+    <string name="imageselected">Image Selected</string>
+    <string name="chosen_image">chosen image</string>
+    <string name="title_goes_here">Title Goes Here</string>
 </resources>

@@ -52,6 +52,32 @@ class MainFragment : Fragment() {
             //action.setMessage(binding.userText.text.toString())
             Navigation.findNavController(it).navigate(action)
         }
+
+        binding.button2.setOnClickListener {
+            Navigation.findNavController(it).navigate(
+                R.id.action_mainFragment_to_secondFragment1)
+        }
+
+
+        binding.button2.setOnClickListener {
+            val action: MainFragmentDirections.ActionMainFragmentToSecondFragment1  =  MainFragmentDirections.actionMainFragmentToSecondFragment1()
+
+            //action.setMessage(binding.userText.text.toString())
+            Navigation.findNavController(it).navigate(action)
+        }
+
+        binding.button3.setOnClickListener {
+            Navigation.findNavController(it).navigate(
+                R.id.action_mainFragment_to_secondFragment1)
+        }
+
+
+        binding.button3.setOnClickListener {
+            val action: MainFragmentDirections.ActionMainFragmentToSecondFragment1  =  MainFragmentDirections.actionMainFragmentToSecondFragment1()
+
+            //action.setMessage(binding.userText.text.toString())
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 
 }
