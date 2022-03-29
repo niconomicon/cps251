@@ -7,7 +7,7 @@ import android.net.Uri
 
 
 class MainActivity : AppCompatActivity(),
-    SecondFragment.OnFragmentInteractionListener {
+    SecondFragment1.OnFragmentInteractionListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

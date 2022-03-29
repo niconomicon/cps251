@@ -31,14 +31,25 @@ class MainFragment : Fragment() {
         return binding.root
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         binding.button.setOnClickListener {
-            val action: MainFragmentDirections.MainToSecond  =  MainFragmentDirections.mainToSecond()
+            Navigation.findNavController(it).navigate(
+                R.id.action_mainFragment_to_secondFragment1)
+        }
 
-            action.setMessage(binding.userText.text.toString())
+
+        binding.button.setOnClickListener {
+            val action: MainFragmentDirections.ActionMainFragmentToSecondFragment1  =  MainFragmentDirections.actionMainFragmentToSecondFragment1()
+
+            //action.setMessage(binding.userText.text.toString())
             Navigation.findNavController(it).navigate(action)
         }
     }
