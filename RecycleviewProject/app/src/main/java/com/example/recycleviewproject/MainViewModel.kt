@@ -1,4 +1,4 @@
-package com.example.recycleviewproject.ui.main
+package com.example.recycleviewproject
 
 import androidx.lifecycle.ViewModel
 
