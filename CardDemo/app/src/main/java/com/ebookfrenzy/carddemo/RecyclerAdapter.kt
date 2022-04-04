@@ -9,12 +9,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ebookfrenzy.carddemo.R
 import com.google.android.material.snackbar.Snackbar
 
+import kotlin.random.Random
+
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
         var itemImage: ImageView
         var itemTitle: TextView
         var itemDetail: TextView
+
         init {
             itemImage = itemView.findViewById(R.id.itemImage)
             itemTitle = itemView.findViewById(R.id.itemTitle)
@@ -48,9 +53,16 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
+
+        var i = (0..8).random()
         viewHolder.itemTitle.text = titles[i]
         viewHolder.itemDetail.text = details[i]
         viewHolder.itemImage.setImageResource(images[i])
+
+        /*viewHolder.itemTitle.text = titles[i]
+        viewHolder.itemDetail.text = details[i]
+        viewHolder.itemImage.setImageResource(images[i])*/
+
     }
 
     override fun getItemCount(): Int {
