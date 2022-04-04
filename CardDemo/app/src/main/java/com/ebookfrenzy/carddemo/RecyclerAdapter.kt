@@ -54,10 +54,13 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
 
-        var i = (0..8).random()
-        viewHolder.itemTitle.text = titles[i]
-        viewHolder.itemDetail.text = details[i]
-        viewHolder.itemImage.setImageResource(images[i])
+        //var i: Int = (0..7).random()
+        //println(i)
+        viewHolder.itemTitle.text = titles[(0..7).random()]
+        viewHolder.itemDetail.text = details[(0..7).random()]
+        viewHolder.itemImage.setImageResource(images[(0..7).random()])
+
+
 
         /*viewHolder.itemTitle.text = titles[i]
         viewHolder.itemDetail.text = details[i]
