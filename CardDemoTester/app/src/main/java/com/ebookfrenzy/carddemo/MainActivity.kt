@@ -31,20 +31,13 @@ class MainActivity : AppCompatActivity() {
 
         println("onCreate, Saved Instance Run")
 
-        /*val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
-
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }*/
-
         layoutManager = LinearLayoutManager(this)
         binding.contentMain.recyclerView.layoutManager = layoutManager
         adapter = RecyclerAdapter()
         binding.contentMain.recyclerView.adapter = adapter
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

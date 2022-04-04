@@ -7,16 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ebookfrenzy.carddemo.R
-import com.google.android.material.snackbar.Snackbar
 import com.ebookfrenzy.carddemo.Data
+import com.google.android.material.snackbar.Snackbar
+import java.util.*
+
 import kotlin.random.Random
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
-    // created new Data class instance
-    private lateinit var data: Data
+
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+
 
         var itemImage: ImageView
         var itemTitle: TextView
@@ -27,6 +30,8 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
             itemTitle = itemView.findViewById(R.id.itemTitle)
             itemDetail = itemView.findViewById(R.id.itemDetail)
 
+
+
             itemView.setOnClickListener { v: View ->
                 var position: Int = getAdapterPosition()
                 Snackbar.make(v, "Click detected on item $position",
@@ -35,7 +40,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         }
     }
 
-    /* previous location of data, kept for reference
+
     private val titles = arrayOf("Chapter One",
         "Chapter Two", "Chapter Three", "Chapter Four",
         "Chapter Five", "Chapter Six", "Chapter Seven",
@@ -49,12 +54,12 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         R.drawable.android_image_4, R.drawable.android_image_5,
         R.drawable.android_image_6, R.drawable.android_image_7,
         R.drawable.android_image_8)
-        */
 
-    //mutable lists to hold randomized data for saved instance, so it can be displayed again when redrawn
     private var randomTitles = mutableListOf<Int>();
     private var randomDetails = mutableListOf<Int>();
     private var randomImages = mutableListOf<Int>();
+
+    private lateinit var data : Data
 
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
@@ -64,58 +69,45 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        // initialized instance of data class
-        data = Data()
 
-
-        // choosing random ints for array, between 0-7
-        val randomTitle : Int = (0..7).random()
-        val randomDetail : Int = (0..7).random()
-        val randomImage : Int = (0..7).random()
-
-
-        // randomizing data called from Data class and adding info to mutable lists
-        viewHolder.itemTitle.text = data.getTitle(randomTitle)
-        randomTitles.add(randomTitle)
-
-        viewHolder.itemDetail.text = data.getDetail(randomDetail)
-        randomDetails.add(randomDetail)
-
-        viewHolder.itemImage.setImageResource(data.getImage(randomImage))
-        randomImages.add(randomImage)
-
-
-        /* randomized data called from this class
-        viewHolder.itemTitle.text = titles[randomTitle]
-        println("Random Titles: "+ randomTitles)
-        viewHolder.itemDetail.text = details[randomDetail]
-        println("Random Details: "+ randomDetails)
-        viewHolder.itemImage.setImageResource(images[randomImage])
-        println("Random Images: "+ randomImages)
-        */
-
-        /* not randomized data called from this class
-        viewHolder.itemTitle.text = titles[i]
-        viewHolder.itemDetail.text = details[i]
-        viewHolder.itemImage.setImageResource(images[i])
-        */
-
-        // testing variables, kept just for reference
         //var i: Int = (0..7).random()
-        //println(data.getTitle((0..7).random()))
-        //println("Random Titles: " + randomTitles)
-        //println("Random Title #: " + randomTitle)
-        //println("Random Detail #: "+ randomDetail)
-        //println("Random Image #: " + randomImage)
+        //println(testchange)
+
+        //DATA CLASS TESTING
+        data = Data()
+        println(Arrays.toString(data.detailTester()) +" <-- Tester is Here")
+
+        println("Random Titles: " + randomTitles)
+        val randomTitle : Int = (0..7).random()
+        println("Random Title #: " + randomTitle)
+        val randomDetail : Int = (0..7).random()
+        println("Random Detail #: "+ randomDetail)
+        val randomImage : Int = (0..7).random()
+        println("Random Image #: " + randomImage)
+
+        viewHolder.itemTitle.text = titles[randomTitle]
+        randomTitles.add(randomTitle)
+        println("Random Titles: "+ randomTitles)
+
+        //Arrays.toString(data.detailTester())
+
+        viewHolder.itemDetail.text = details[randomDetail]
+        randomDetails.add(randomDetail)
+        println("Random Details: "+ randomDetails)
+
+        viewHolder.itemImage.setImageResource(images[randomImage])
+        randomImages.add(randomImage)
+        println("Random Images: "+ randomImages)
+
+
+
+        /*viewHolder.itemTitle.text = titles[i]
+        viewHolder.itemDetail.text = details[i]
+        viewHolder.itemImage.setImageResource(images[i])*/
 
     }
 
     override fun getItemCount(): Int {
-        //call to array in original location
-        //return titles.size
-
-        //initialized new instance of Data class and called to array in Data class
-        data = Data()
-        return data.getTitles().size
+        return titles.size
     }
 }
