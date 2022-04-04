@@ -16,6 +16,7 @@ class Data {
         R.drawable.android_image_6, R.drawable.android_image_7,
         R.drawable.android_image_8)
 
+    //these do not work properly from this class, kept getters/setters just in case
     private var randomTitles = mutableListOf<Int>();
     private var randomDetails = mutableListOf<Int>();
     private var randomImages = mutableListOf<Int>();
@@ -44,5 +45,25 @@ class Data {
 
     fun getImage(i: Int): Int {
         return images[i]
+    }
+
+    //getters & setters for mutable lists
+    fun getRandomTitles(): MutableList<Int> {
+        return randomTitles
+    }
+    fun getRandomDetails(): MutableList<Int> {
+        return randomDetails
+    }
+    fun getRandomImages(): MutableList<Int> {
+        return randomImages
+    }
+    fun setRandomTitles(i: Int) {
+        randomTitles.add(i)
+    }
+    fun setRandomDetails(i: Int) {
+        randomDetails.add(i)
+    }
+    fun setRandomImages(i: Int) {
+        randomImages.add(i)
     }
 }

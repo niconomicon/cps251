@@ -16,7 +16,9 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     // created new Data class instance
     private lateinit var data: Data
 
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
 
         var itemImage: ImageView
         var itemTitle: TextView
@@ -35,7 +37,8 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         }
     }
 
-    /* previous location of data, kept for reference
+    //previous location of data, kept for reference
+    /*
     private val titles = arrayOf("Chapter One",
         "Chapter Two", "Chapter Three", "Chapter Four",
         "Chapter Five", "Chapter Six", "Chapter Seven",
@@ -64,28 +67,33 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        // initialized instance of data class
+        // initialized instance of data class (not sure if this is necessary? still works without)
         data = Data()
-
 
         // choosing random ints for array, between 0-7
         val randomTitle : Int = (0..7).random()
         val randomDetail : Int = (0..7).random()
         val randomImage : Int = (0..7).random()
 
-
-        // randomizing data called from Data class and adding info to mutable lists
+        // randomizing data called from Data class
         viewHolder.itemTitle.text = data.getTitle(randomTitle)
-        randomTitles.add(randomTitle)
-
         viewHolder.itemDetail.text = data.getDetail(randomDetail)
-        randomDetails.add(randomDetail)
-
         viewHolder.itemImage.setImageResource(data.getImage(randomImage))
+
+        //adding data to mutable lists in this class
+        randomTitles.add(randomTitle)
+        randomDetails.add(randomDetail)
         randomImages.add(randomImage)
 
+        //adding data to mutable lists in Data class - doesn't work, new data instance is created each time so it only adds 1
+        /*
+        data.setRandomTitles(randomTitle)
+        data.setRandomDetails(randomDetail)
+        data.setRandomImages(randomImage)
+        */
 
-        /* randomized data called from this class
+        //randomized data called from this class, kept for reference
+        /*
         viewHolder.itemTitle.text = titles[randomTitle]
         println("Random Titles: "+ randomTitles)
         viewHolder.itemDetail.text = details[randomDetail]
@@ -94,7 +102,8 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         println("Random Images: "+ randomImages)
         */
 
-        /* not randomized data called from this class
+        //un-randomized data called from this class, kept for reference
+        /*
         viewHolder.itemTitle.text = titles[i]
         viewHolder.itemDetail.text = details[i]
         viewHolder.itemImage.setImageResource(images[i])
@@ -107,14 +116,17 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         //println("Random Title #: " + randomTitle)
         //println("Random Detail #: "+ randomDetail)
         //println("Random Image #: " + randomImage)
+        //println("Random Titles: "+ data.getRandomTitles())
+        //println("Random Details: "+ data.getRandomDetails())
+        //println("Random Images: "+ data.getRandomImages())
 
     }
 
     override fun getItemCount(): Int {
-        //call to array in original location
+        //call to array in original location, kept for reference
         //return titles.size
 
-        //initialized new instance of Data class and called to array in Data class
+        //initializing new instance of Data class and calling to array in Data class
         data = Data()
         return data.getTitles().size
     }
