@@ -33,6 +33,9 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
                 var position: Int = getAdapterPosition()
                 Snackbar.make(v, "Click detected on item $position",
                     Snackbar.LENGTH_LONG).setAction("Action", null).show()
+
+                // put intents info here (i think???)
+
             }
         }
     }
@@ -129,5 +132,8 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         //initializing new instance of Data class and calling to array in Data class
         data = Data()
         return data.getTitles().size
+
+
+
     }
 }
