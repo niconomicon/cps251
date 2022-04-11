@@ -10,4 +10,9 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="androidimage">androidimage</string>
+    <string name="image">image</string>
+    <string name="capter_goes_here">Capter Goes Here</string>
+    <string name="details_go_here">Details Go Here</string>
+    <string name="chapter">Chapter</string>
+    <string name="details">Details</string>
 </resources>

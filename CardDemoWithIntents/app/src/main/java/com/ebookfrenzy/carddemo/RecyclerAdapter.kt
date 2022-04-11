@@ -1,21 +1,26 @@
 package com.ebookfrenzy.carddemo
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.TextView
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.ebookfrenzy.carddemo.R
 import com.google.android.material.snackbar.Snackbar
 import com.ebookfrenzy.carddemo.Data
+import com.ebookfrenzy.carddemo.databinding.ActivityMain2Binding
+import com.ebookfrenzy.carddemo.databinding.ActivityMainBinding
 import kotlin.random.Random
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     // created new Data class instance
     private lateinit var data: Data
-
+    private lateinit var binding: ActivityMain2Binding
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -31,10 +36,32 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
             itemView.setOnClickListener { v: View ->
                 var position: Int = getAdapterPosition()
-                Snackbar.make(v, "Click detected on item $position",
+                Snackbar.make(v, "Click detected on item $position, " + itemTitle.text + ", " + itemDetail.text,
                     Snackbar.LENGTH_LONG).setAction("Action", null).show()
 
                 // put intents info here (i think???)
+
+                /*val i = Intent(this, MainActivity2::class.java)
+
+                    i.putExtra("myTitle", itemTitle.text)
+                    i.putExtra("myDetails", itemDetail.text)
+                    // i.putExtra("myImageInt", randomImage)
+
+                    startActivity(i)
+                    */
+
+                /*fun createIntent(context: Context, title: String) {
+                    val i = Intent(context, MainActivity2::class.java)
+                    i.putExtra("text", title)
+                    context.startActivity(i)
+                    }*/
+
+                //createIntent()
+
+                /*binding.titleText.text = "Test Title"
+                binding.detailText.text = "Test Details"
+                binding.img.setImageResource(data.getImage(1))*/
+
 
             }
         }
