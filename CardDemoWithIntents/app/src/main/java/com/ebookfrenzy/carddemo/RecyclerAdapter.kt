@@ -20,7 +20,10 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     // created new Data class instance
     private lateinit var data: Data
-    private lateinit var binding: ActivityMain2Binding
+
+    //don't need in this class
+    //private lateinit var binding: ActivityMain2Binding
+    private lateinit var binding: ActivityMainBinding
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -36,12 +39,22 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
             itemTitle = itemView.findViewById(R.id.itemTitle)
             itemDetail = itemView.findViewById(R.id.itemDetail)
 
+
             itemView.setOnClickListener { v: View ->
                 var position: Int = getAdapterPosition()
                 Snackbar.make(v, "Click detected on item $position, " + itemTitle.text + ", " + itemDetail.text  + ", Image #" + randomImgNum,
                     Snackbar.LENGTH_LONG).setAction("Action", null).show()
 
                 // put intents info here (i think???)
+               /* fun sendText(context: Context) {
+                    val i = Intent(context, MainActivity2::class.java)
+                    val myTitle = itemTitle.text //.toString()
+                    i.putExtra("myTitle", myTitle)
+                    context.startActivity(i)
+                    // i.putExtra("myDetails", itemDetail.text)
+                    // val myString = binding.editText1.text.toString()
+                }*/
+
 
                 /*val i = Intent(this, MainActivity2::class.java)
 

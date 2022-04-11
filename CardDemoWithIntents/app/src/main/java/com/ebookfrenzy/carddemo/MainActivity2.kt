@@ -29,16 +29,16 @@ class MainActivity2 : AppCompatActivity() {
         setContentView(binding.root)
         /*
             //setSupportActionBar(binding.toolbar)
-
+*/
             //retrieve intents
             val extras = intent.extras ?: return
             val myTitle = extras.getString("myTitle")
-            val myDetails = extras.getString("myDetails")
-            int myImageInt = extras.getInt("myImageInt")
-            */
+            //val myDetails = extras.getString("myDetails")
+            //int myImageInt = extras.getInt("myImageInt")
+
         // bind intents to views
-        binding.titleText.text // = myTitle
-        binding.detailText.text // = myDetails
+        binding.titleText.text  = myTitle
+       // binding.detailText.text // = myDetails
        // binding.img.setImageResource(data.getImage(randomImage))
 
     }
