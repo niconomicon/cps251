@@ -14,15 +14,15 @@ import com.google.android.material.snackbar.Snackbar
 import com.ebookfrenzy.carddemo.Data
 import com.ebookfrenzy.carddemo.databinding.ActivityMain2Binding
 import com.ebookfrenzy.carddemo.databinding.ActivityMainBinding
+import com.ebookfrenzy.carddemo.MainActivity
 import kotlin.random.Random
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     // created new Data class instance
     private lateinit var data: Data
+    private lateinit var mainActivity: MainActivity
 
-    //don't need in this class
-    //private lateinit var binding: ActivityMain2Binding
     private lateinit var binding: ActivityMainBinding
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -34,49 +34,48 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
         var randomImgNum: Int = 0
 
+
+
         init {
             itemImage = itemView.findViewById(R.id.itemImage)
             itemTitle = itemView.findViewById(R.id.itemTitle)
             itemDetail = itemView.findViewById(R.id.itemDetail)
 
+            mainActivity = MainActivity()
 
             itemView.setOnClickListener { v: View ->
                 var position: Int = getAdapterPosition()
+                //added calls to title, details, and img data to make sure it's pulling the right info
                 Snackbar.make(v, "Click detected on item $position, " + itemTitle.text + ", " + itemDetail.text  + ", Image #" + randomImgNum,
                     Snackbar.LENGTH_LONG).setAction("Action", null).show()
 
                 // put intents info here (i think???)
-               /* fun sendText(context: Context) {
-                    val i = Intent(context, MainActivity2::class.java)
-                    val myTitle = itemTitle.text //.toString()
-                    i.putExtra("myTitle", myTitle)
-                    context.startActivity(i)
-                    // i.putExtra("myDetails", itemDetail.text)
-                    // val myString = binding.editText1.text.toString()
-                }*/
 
-
+                // Tried putting Intents info here, but it isn't an activity so it doesn't work?
                 /*val i = Intent(this, MainActivity2::class.java)
 
                     i.putExtra("myTitle", itemTitle.text)
                     i.putExtra("myDetails", itemDetail.text)
                     // i.putExtra("myImageInt", randomImage)
-
                     startActivity(i)
                     */
 
-                /*fun createIntent(context: Context, title: String) {
-                    val i = Intent(context, MainActivity2::class.java)
-                    i.putExtra("text", title)
-                    context.startActivity(i)
-                    }*/
+                // Tried putting Intents info here using a method to create context, but it doesn't work
+                /* fun sendText(context: Context) {
+                     val i = Intent(context, MainActivity2::class.java)
+                     val myTitle = itemTitle.text //.toString()
+                     i.putExtra("myTitle", myTitle)
+                     context.startActivity(i)
+                     // i.putExtra("myDetails", itemDetail.text)
+                     // val myString = binding.editText1.text.toString()
+                 }*/
 
-                //createIntent()
+                // tried calling method from Main Activity, but it breaks in sendText method on Intent creation line?
+                //mainActivity.sendText(itemView)
 
-                /*binding.titleText.text = "Test Title"
-                binding.detailText.text = "Test Details"
-                binding.img.setImageResource(data.getImage(1))*/
 
+                //I don't think I need this, kept for reference
+                //binding = ActivityMainBinding.bind(itemView)
 
             }
         }

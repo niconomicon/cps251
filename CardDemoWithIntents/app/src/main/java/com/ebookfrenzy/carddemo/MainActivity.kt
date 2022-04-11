@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.content.Intent
+import androidx.appcompat.view.menu.MenuView
 import com.ebookfrenzy.carddemo.RecyclerAdapter
 
 class MainActivity : AppCompatActivity() {
@@ -53,11 +54,14 @@ class MainActivity : AppCompatActivity() {
         binding.contentMain.recyclerView.adapter = adapter
     }
 
+    // get data from recycler adapter, create intent, and launch 2nd activity
     fun sendText(view: View) {
         recyclerAdapter = RecyclerAdapter()
         val i = Intent(this, MainActivity2::class.java)
         //val myString = binding.item.text.toString()
         i.putExtra("myTitle", recyclerAdapter.ViewHolder(view).itemTitle.text )
+        i.putExtra("myDetails", recyclerAdapter.ViewHolder(view).itemDetail.text )
+        i.putExtra("myImageInt", recyclerAdapter.ViewHolder(view).randomImgNum )
         startActivity(i)
     }
 
