@@ -29,6 +29,8 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         var itemTitle: TextView
         var itemDetail: TextView
 
+        var randomImgNum: Int = 0
+
         init {
             itemImage = itemView.findViewById(R.id.itemImage)
             itemTitle = itemView.findViewById(R.id.itemTitle)
@@ -36,7 +38,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
             itemView.setOnClickListener { v: View ->
                 var position: Int = getAdapterPosition()
-                Snackbar.make(v, "Click detected on item $position, " + itemTitle.text + ", " + itemDetail.text,
+                Snackbar.make(v, "Click detected on item $position, " + itemTitle.text + ", " + itemDetail.text  + ", Image #" + randomImgNum,
                     Snackbar.LENGTH_LONG).setAction("Action", null).show()
 
                 // put intents info here (i think???)
@@ -90,6 +92,8 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     private var randomImages = mutableListOf<Int>();
 
 
+
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
         val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.card_layout, viewGroup, false)
         return ViewHolder(v)
@@ -104,6 +108,9 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         val randomTitle : Int = (0..7).random()
         val randomDetail : Int = (0..7).random()
         val randomImage : Int = (0..7).random()
+
+        //add random image number to view holder variable so it can be called later
+        viewHolder.randomImgNum = randomImage
 
         // randomizing data called from Data class
         viewHolder.itemTitle.text = data.getTitle(randomTitle)
