@@ -31,6 +31,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         var itemTitle: TextView
         var itemDetail: TextView
 
+        //made a new variable so the random image number can be passed using Intents
         var randomImgNum: Int = 0
 
         init {
@@ -95,7 +96,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         val randomDetail : Int = (0..7).random()
         val randomImage : Int = (0..7).random()
 
-        //add random image number to view holder variable so it can be passed using Intents
+        //add random number to view holder variable so it can be passed using Intents
         viewHolder.randomImgNum = randomImage
 
         viewHolder.itemTitle.text = data.getTitle(randomTitle)
