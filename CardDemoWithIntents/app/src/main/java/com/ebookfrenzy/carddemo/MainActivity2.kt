@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ebookfrenzy.carddemo.databinding.ActivityMain2Binding
 import com.ebookfrenzy.carddemo.Data
+import android.view.View
 import android.content.Intent
 
 
@@ -28,16 +29,14 @@ class MainActivity2 : AppCompatActivity() {
 
         binding = ActivityMain2Binding.inflate(layoutInflater)
         setContentView(binding.root)
-        /*
-            //setSupportActionBar(binding.toolbar)
-*/
-            //retrieve intent values
-            val extras = intent.extras ?: return
-            val myTitle = extras.getString("myTitle")
-            val myDetails = extras.getString("myDetails")
-            val myImageInt = extras.getInt( "myImageInt")
 
-        // bind intents to views
+        //retrieve intent values from Main Activity
+        val extras = intent.extras ?: return
+        val myTitle = extras.getString("myTitle")
+        val myDetails = extras.getString("myDetails")
+        val myImageInt = extras.getInt( "myImageInt")
+
+        // bind intents to views in 2nd activity layout
         binding.titleText.text  = myTitle
         binding.detailText.text  = myDetails
         binding.img.setImageResource(data.getImage(myImageInt))

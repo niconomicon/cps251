@@ -34,8 +34,6 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
         var randomImgNum: Int = 0
 
-
-
         init {
             itemImage = itemView.findViewById(R.id.itemImage)
             itemTitle = itemView.findViewById(R.id.itemTitle)
@@ -51,7 +49,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
                 // put intents info here (i think???)
 
-                // Tried putting Intents info here, but it isn't an activity so it doesn't work?
+                // Tried putting Intents info here, but it isn't an activity so it doesn't work
                 /*val i = Intent(this, MainActivity2::class.java)
 
                     i.putExtra("myTitle", itemTitle.text)
@@ -60,7 +58,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
                     startActivity(i)
                     */
 
-                // Tried putting Intents info here using a method to create context, but it doesn't work
+                // Tried putting Intents info here using a method to create context, but it doesn't work so I put it in the Main Activity
                 /* fun sendText(context: Context) {
                      val i = Intent(context, MainActivity2::class.java)
                      val myTitle = itemTitle.text //.toString()
@@ -70,7 +68,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
                      // val myString = binding.editText1.text.toString()
                  }*/
 
-                // tried calling method from Main Activity, but it breaks in sendText method on Intent creation line?
+                // Tried calling method from Main Activity, but it breaks in sendText method on Intent creation line
                 //mainActivity.sendText(itemView)
 
 
@@ -102,7 +100,6 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     private var randomTitles = mutableListOf<Int>();
     private var randomDetails = mutableListOf<Int>();
     private var randomImages = mutableListOf<Int>();
-
 
 
 
