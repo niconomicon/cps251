@@ -87,7 +87,9 @@ class MainFragment : Fragment() {
     }
 
     private fun recyclerSetup() {
-        adapter = ProductListAdapter(R.layout.product_list_item)
+        //card layout needs to be called here
+        //adapter = ProductListAdapter(R.layout.product_list_item)
+        adapter = ProductListAdapter(R.layout.card_layout)
         binding.productRecycler.layoutManager = LinearLayoutManager(context)
         binding.productRecycler.adapter = adapter
     }
