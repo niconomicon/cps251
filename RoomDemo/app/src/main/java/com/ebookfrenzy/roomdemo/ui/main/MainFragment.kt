@@ -65,17 +65,28 @@ class MainFragment : Fragment() {
             clearFields()
         }
         //add SORT listeners here
+        //asc sort
         binding.sortAscButton.setOnClickListener { viewModel.getAscSortedProducts()
             //added sort observer here instead - works!
             viewModel.getAscSortedProducts()?.observe(this, Observer { products ->
                 products?.let {
                     adapter?.setProductList(it)
-                    println("sort observer ran")
+
                 }
             })
-
             clearFields()
-            println("sort button clicked ran")}
+            }
+        //des sort
+        binding.sortDesButton.setOnClickListener { viewModel.getDesSortedProducts()
+            //added sort observer here instead - works!
+            viewModel.getDesSortedProducts()?.observe(this, Observer { products ->
+                products?.let {
+                    adapter?.setProductList(it)
+
+                }
+            })
+            clearFields()
+            }
     }
 
     private fun observerSetup() {
@@ -96,13 +107,6 @@ class MainFragment : Fragment() {
                 }
             }
         })
-        //add sort observer?
-        /*viewModel.getAscSortedProducts()?.observe(this, Observer { products ->
-            products?.let {
-                adapter?.setProductList(it)
-                println("sort observer ran")
-            }
-        })*/
     }
 
     private fun recyclerSetup() {

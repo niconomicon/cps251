@@ -13,6 +13,7 @@ class ProductRepository(application: Application) {
     val allProducts: LiveData<List<Product>>?
     //sort
     val ascSortedProducts: LiveData<List<Product>>?
+    val desSortedProducts: LiveData<List<Product>>?
 
     init {
         val db: ProductRoomDatabase? =
@@ -21,6 +22,8 @@ class ProductRepository(application: Application) {
         allProducts = productDao?.getAllProducts()
         //call sort function from Dao
         ascSortedProducts = productDao?.ascSortProducts()
+        desSortedProducts = productDao?.desSortProducts()
+
     }
 
     fun insertProduct(newproduct: Product) {

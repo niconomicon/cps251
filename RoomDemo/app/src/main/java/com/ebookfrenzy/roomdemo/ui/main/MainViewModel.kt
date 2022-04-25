@@ -17,12 +17,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val searchResults: MutableLiveData<List<Product>>
     //add sort value here
     private val ascSortedProducts: LiveData<List<Product>>?
+    private val desSortedProducts: LiveData<List<Product>>?
 
     init {
         allProducts = repository.allProducts
         searchResults = repository.searchResults
         //initilaize sort value here with call to Repository
         ascSortedProducts = repository.ascSortedProducts
+        desSortedProducts = repository.desSortedProducts
     }
 
     fun insertProduct(product: Product) {
@@ -39,10 +41,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun getAscSortedProducts(): LiveData<List<Product>>? {
         return ascSortedProducts
     }
-    /*
-    fun desSortProducts(): LiveData<List<Product>>? {
+    fun getDesSortedProducts(): LiveData<List<Product>>? {
         return desSortedProducts
-    }*/
+    }
 
     fun getSearchResults(): MutableLiveData<List<Product>> {
         return searchResults
