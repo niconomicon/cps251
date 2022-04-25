@@ -14,6 +14,7 @@ import com.ebookfrenzy.roomdemo.Product
 import androidx.fragment.app.viewModels
 import java.util.*
 import com.ebookfrenzy.roomdemo.databinding.MainFragmentBinding
+import java.lang.Integer.parseInt
 
 class MainFragment : Fragment() {
 
@@ -59,9 +60,19 @@ class MainFragment : Fragment() {
             }
         }
         binding.findButton.setOnClickListener { viewModel.findProduct(
-            binding.productName.text.toString()) }
+            binding.productName.text.toString())
+        //change list to show search results only
+            viewModel.getSearchResults()?.observe(this, Observer { products ->
+                products?.let {
+                    adapter?.setProductList(it)
+
+                }
+            })
+            //clearFields()
+        //
+        }
         binding.deleteButton.setOnClickListener {
-            viewModel.deleteProduct(binding.productName.text.toString())
+            viewModel.deleteProduct(binding.productID.text.toString())
             clearFields()
         }
         //add SORT listeners here
@@ -87,7 +98,17 @@ class MainFragment : Fragment() {
             })
             clearFields()
             }
+        //HERE WE USE THE INTERFACE AND DEFINE THE ONCLICK METHOD OF THE INTERFACE
+       /* adapter!!.settingListener(object: ProductListAdapter.onItemClickListener{
+            override fun onClick(id: String) {
+                var productId: Int = parseInt(id)
+                viewModel.deleteProduct(binding.productID.text.toString())
+            }
+        })*/
+
     }
+
+
 
     private fun observerSetup() {
         viewModel.getAllProducts()?.observe(this, Observer { products ->

@@ -34,13 +34,14 @@ class ProductRepository(application: Application) {
     private suspend fun asyncInsert(product: Product) {
         productDao?.insertProduct(product)
     }
-
     fun deleteProduct(name: String) {
+ //   fun deleteProduct(id: Int) {
         coroutineScope.launch(Dispatchers.IO) {
             asyncDelete(name)
         }
     }
     private suspend fun asyncDelete(name: String) {
+    //private suspend fun asyncDelete(id: Int) {
         productDao?.deleteProduct(name)
     }
 
