@@ -23,6 +23,7 @@
             android:layout_height="100dp"
             android:layout_marginTop="4dp"
             android:contentDescription="@string/deletebutton"
+            android:src="@drawable/ic_baseline_delete_24"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
