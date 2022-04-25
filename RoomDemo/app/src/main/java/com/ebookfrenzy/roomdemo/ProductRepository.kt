@@ -42,7 +42,7 @@ class ProductRepository(application: Application) {
     }
 
     //add sort routines here somewhere
-    /*fun findProduct(name: String) {
+    /*fun ascSortProducts(name: String) {
         coroutineScope.launch(Dispatchers.Main) {
             searchResults.value = asyncFind(name).await()
         }

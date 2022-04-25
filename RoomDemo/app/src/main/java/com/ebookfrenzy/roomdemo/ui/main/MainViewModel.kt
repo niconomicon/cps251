@@ -35,12 +35,13 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         repository.deleteProduct(name)
     }
 
-    /*add SORT functions here
-    fun ascSortProducts(): LiveData<List<Product>>? {
+    //add SORT functions here
+    fun getAscSortedProducts(): LiveData<List<Product>>? {
         return ascSortedProducts
     }
-    fun sortProductDes(name: String) {
-        repository.deleteProduct(name)
+    /*
+    fun desSortProducts(): LiveData<List<Product>>? {
+        return desSortedProducts
     }*/
 
     fun getSearchResults(): MutableLiveData<List<Product>> {
