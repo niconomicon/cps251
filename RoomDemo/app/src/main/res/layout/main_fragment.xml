@@ -108,6 +108,22 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/delete" />
+
+        <Button
+            android:id="@+id/sortAscButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/sort_asc"
+            style="?android:attr/buttonBarButtonStyle" />
+
+        <Button
+            android:id="@+id/sortDesButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/sort_des"
+            style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

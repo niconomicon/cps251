@@ -64,6 +64,7 @@ class MainFragment : Fragment() {
             viewModel.deleteProduct(binding.productName.text.toString())
             clearFields()
         }
+        //add SORT listeners here
     }
 
     private fun observerSetup() {

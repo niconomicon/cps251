@@ -11,12 +11,16 @@ class ProductRepository(application: Application) {
     private var productDao: ProductDao?
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
     val allProducts: LiveData<List<Product>>?
+    //sort
+    val ascSortedProducts: LiveData<List<Product>>?
 
     init {
         val db: ProductRoomDatabase? =
             ProductRoomDatabase.getDatabase(application)
         productDao = db?.productDao()
         allProducts = productDao?.getAllProducts()
+        //call sort function from Dao
+        ascSortedProducts = productDao?.ascSortProducts()
     }
 
     fun insertProduct(newproduct: Product) {
@@ -27,6 +31,7 @@ class ProductRepository(application: Application) {
     private suspend fun asyncInsert(product: Product) {
         productDao?.insertProduct(product)
     }
+
     fun deleteProduct(name: String) {
         coroutineScope.launch(Dispatchers.IO) {
             asyncDelete(name)
@@ -35,6 +40,18 @@ class ProductRepository(application: Application) {
     private suspend fun asyncDelete(name: String) {
         productDao?.deleteProduct(name)
     }
+
+    //add sort routines here somewhere
+    /*fun findProduct(name: String) {
+        coroutineScope.launch(Dispatchers.Main) {
+            searchResults.value = asyncFind(name).await()
+        }
+    }
+    private suspend fun asyncFind(name: String): Deferred<List<Product>?> =
+        coroutineScope.async(Dispatchers.IO) {
+            return@async productDao?.findProduct(name)
+        }*/
+
     fun findProduct(name: String) {
         coroutineScope.launch(Dispatchers.Main) {
             searchResults.value = asyncFind(name).await()

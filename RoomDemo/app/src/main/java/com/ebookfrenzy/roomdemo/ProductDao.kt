@@ -26,8 +26,11 @@ interface ProductDao {
     @Query("SELECT * FROM contacts ORDER BY contactName DESC")
     */
 
-
-    @Query("SELECT * FROM products WHERE productName = :name")
+    //updated query using contacts query provided
+    //@Query("SELECT * FROM products WHERE productName LIKE '%' || :name || '%'")
+    //original query
+    //@Query("SELECT * FROM products WHERE productName = :name")
+    @Query("SELECT * FROM products WHERE productName LIKE '%' || :name || '%'")
     fun findProduct(name: String): List<Product>
 
     @Query("DELETE FROM products WHERE productName = :name")
@@ -35,4 +38,12 @@ interface ProductDao {
 
     @Query("SELECT * FROM products")
     fun getAllProducts(): LiveData<List<Product>>
+
+    //add sort here
+    @Query("SELECT * FROM products ORDER BY productName ASC")
+    fun ascSortProducts(): LiveData<List<Product>>
+
+    @Query("SELECT * FROM products ORDER BY productName DESC")
+    fun desSortProducts(): LiveData<List<Product>>
+
 }
