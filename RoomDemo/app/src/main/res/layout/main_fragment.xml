@@ -49,7 +49,8 @@
                 android:hint="@string/enter_name"
                 android:inputType="none"
                 android:textSize="18sp"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck,TextContrastCheck" />
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck,TextContrastCheck"
+                android:importantForAutofill="no" />
         </TableRow>
 
         <TableRow
@@ -71,7 +72,8 @@
                 android:hint="@string/enter_phone"
                 android:inputType="numberDecimal"
                 android:textSize="18sp"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,TextContrastCheck"
+                android:importantForAutofill="no" />
         </TableRow>
 
     </TableLayout>

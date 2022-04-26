@@ -15,9 +15,6 @@ import java.lang.Integer.parseInt
 class ProductListAdapter(private val contactItemLayout: Int):
     RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
 
-    /*private var _binding: MainFragmentBinding? = null
-    private val binding get() = _binding!!*/
-
     private var productList: List<Product>? = null
     //WE NEED THIS TO CALL THE ONCLICK IN THE ONBINDVIEWHOLDER
     var listener: onItemClickListener? = null
@@ -29,8 +26,6 @@ class ProductListAdapter(private val contactItemLayout: Int):
         fun onClick(str: String) //pass your object types.}
     }
 
-
-
     override fun onBindViewHolder(holder: ViewHolder, listPosition: Int) {
         val name = holder.name
         productList.let {
@@ -41,44 +36,13 @@ class ProductListAdapter(private val contactItemLayout: Int):
             phone.text = it!![listPosition].quantity.toString()
         }
 
-
-        /*val id = holder.id
-        productList.let {
-            id.text = it!![listPosition].id.toString()
-        }*/
-        /*val deleteBtn = holder.deleteBtn
-        productList.let {
-            deleteBtn.setImageResource(parseInt(id.toString()))
-        }*/
-
-        /*deleteBtn.setOnClickListener(View.OnClickListener {
-               //var id = productId.text.toString()
+        //deleteBtn resource isn't recognized
+      /*  deleteBtn.setOnClickListener(View.OnClickListener {
                var id = productId.text.toString()
                listener?.onClick(id)
-               //Log.i("zzzz","contactListAdapter " + id)
         })*/
 
-
-        /*val id = holder.id
-        productList.let {
-            id.text = it!![listPosition].id.toString()
-        }*/
-        //ADD HOLDER FOR IMAGE RESOURCE HERE
-        /*val img = holder.img
-        productList.let {
-            img.setImageResource() = it!![listPosition].id.toString()
-        }*/
-
     }
-    //ROOMDEMO
-    /*override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
-            ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(
-            productItemLayout, parent, false)
-        return ViewHolder(view)
-    }
-*/
-
     //adapter = productListAdapter
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
@@ -88,13 +52,6 @@ class ProductListAdapter(private val contactItemLayout: Int):
 
         return ViewHolder(view)
     }
-
-    //FROM CARDDEMO
-    /*override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
-        val v = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.card_layout, viewGroup, false)
-        return ViewHolder(v)
-    }*/
 
     fun setProductList(products: List<Product>) {
         productList = products
@@ -108,37 +65,11 @@ class ProductListAdapter(private val contactItemLayout: Int):
         var phone: TextView = itemView.findViewById(R.id.phone_number)
 
         init {
-            /*itemImage = itemView.findViewById(R.id.itemImage)
-            itemTitle = itemView.findViewById(R.id.itemTitle)
-            itemDetail = itemView.findViewById(R.id.itemDetail)*/
-
             itemView.setOnClickListener { v: View ->
                 var position: Int = getAdapterPosition()
                 Snackbar.make(v, "Click detected on item $position",
                     Snackbar.LENGTH_LONG).setAction("Action", null).show()
-
-
-
             }
         }
-        //var id: TextView = itemView.findViewById(R.id.productID)
-        //add separate image variable to each card
-        //var deleteBtn: ImageView = itemView.findViewById(R.id.deleteBtn)
-
     }
-
-
-
-    /* ViewHolder used to hold cards in CardDemo project example
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    var itemImage: ImageView
-    var itemTitle: TextView
-    var itemDetail: TextView
-        init {
-        itemImage = itemView.findViewById(R.id.itemImage)
-        itemTitle = itemView.findViewById(R.id.itemTitle)
-        itemDetail = itemView.findViewById(R.id.itemDetail)
-        }
-    }
-     */
 }

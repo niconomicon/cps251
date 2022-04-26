@@ -61,54 +61,47 @@ class MainFragment : Fragment() {
         }
         binding.findButton.setOnClickListener { viewModel.findProduct(
             binding.productName.text.toString())
-        //change list to show search results only
             viewModel.getSearchResults()?.observe(this, Observer { products ->
                 products?.let {
                     adapter?.setProductList(it)
 
                 }
             })
-            //clearFields()
-        //
         }
         binding.deleteButton.setOnClickListener {
             viewModel.deleteProduct(binding.productID.text.toString())
             clearFields()
         }
-        //add SORT listeners here
+        //added SORT listeners here
         //asc sort
         binding.sortAscButton.setOnClickListener { viewModel.getAscSortedContacts()
-            //added sort observer here instead - works!
+            //added sort observer here
             viewModel.getAscSortedContacts()?.observe(this, Observer { products ->
                 products?.let {
                     adapter?.setProductList(it)
-
                 }
             })
-            clearFields()
+
             }
         //des sort
         binding.sortDesButton.setOnClickListener { viewModel.getDesSortedContacts()
-            //added sort observer here instead - works!
+            //added sort observer here
             viewModel.getDesSortedContacts()?.observe(this, Observer { products ->
                 products?.let {
                     adapter?.setProductList(it)
-
                 }
             })
-            clearFields()
+
             }
         //HERE WE USE THE INTERFACE AND DEFINE THE ONCLICK METHOD OF THE INTERFACE
-       /* adapter!!.settingListener(object: ProductListAdapter.onItemClickListener{
+       adapter?.settingListener(object: ProductListAdapter.onItemClickListener{
             override fun onClick(id: String) {
                 var productId: Int = parseInt(id)
                 viewModel.deleteProduct(binding.productID.text.toString())
             }
-        })*/
+        })
 
     }
-
-
 
     private fun observerSetup() {
         viewModel.getAllProducts()?.observe(this, Observer { products ->
