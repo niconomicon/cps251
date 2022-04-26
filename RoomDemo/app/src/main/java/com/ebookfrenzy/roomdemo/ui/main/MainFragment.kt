@@ -56,7 +56,7 @@ class MainFragment : Fragment() {
                 viewModel.insertProduct(product)
                 clearFields()
             } else {
-                binding.productID.text = "Incomplete information"
+                binding.productID.text = "You must enter a name and phone number"
             }
         }
         binding.findButton.setOnClickListener { viewModel.findProduct(
@@ -77,9 +77,9 @@ class MainFragment : Fragment() {
         }
         //add SORT listeners here
         //asc sort
-        binding.sortAscButton.setOnClickListener { viewModel.getAscSortedProducts()
+        binding.sortAscButton.setOnClickListener { viewModel.getAscSortedContacts()
             //added sort observer here instead - works!
-            viewModel.getAscSortedProducts()?.observe(this, Observer { products ->
+            viewModel.getAscSortedContacts()?.observe(this, Observer { products ->
                 products?.let {
                     adapter?.setProductList(it)
 
@@ -88,9 +88,9 @@ class MainFragment : Fragment() {
             clearFields()
             }
         //des sort
-        binding.sortDesButton.setOnClickListener { viewModel.getDesSortedProducts()
+        binding.sortDesButton.setOnClickListener { viewModel.getDesSortedContacts()
             //added sort observer here instead - works!
-            viewModel.getDesSortedProducts()?.observe(this, Observer { products ->
+            viewModel.getDesSortedContacts()?.observe(this, Observer { products ->
                 products?.let {
                     adapter?.setProductList(it)
 
@@ -124,7 +124,7 @@ class MainFragment : Fragment() {
                     binding.productQuantity.setText(String.format(Locale.US, "%d",
                         it[0].quantity))
                 } else {
-                    binding.productID.text = "No Match"
+                    binding.productID.text = "No matches found for that name"
                 }
             }
         })

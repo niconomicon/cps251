@@ -8,11 +8,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ebookfrenzy.roomdemo.Product
 import com.ebookfrenzy.roomdemo.R
+import com.google.android.material.snackbar.Snackbar
 import java.lang.Integer.parseInt
 
 //class ProductListAdapter(private val productItemLayout: Int) :
 class ProductListAdapter(private val contactItemLayout: Int):
     RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
+
+    /*private var _binding: MainFragmentBinding? = null
+    private val binding get() = _binding!!*/
 
     private var productList: List<Product>? = null
     //WE NEED THIS TO CALL THE ONCLICK IN THE ONBINDVIEWHOLDER
@@ -36,6 +40,8 @@ class ProductListAdapter(private val contactItemLayout: Int):
         productList.let {
             phone.text = it!![listPosition].quantity.toString()
         }
+
+
         /*val id = holder.id
         productList.let {
             id.text = it!![listPosition].id.toString()
@@ -45,9 +51,9 @@ class ProductListAdapter(private val contactItemLayout: Int):
             deleteBtn.setImageResource(parseInt(id.toString()))
         }*/
 
-       /* deleteBtn.setOnClickListener(View.OnClickListener {
+        /*deleteBtn.setOnClickListener(View.OnClickListener {
                //var id = productId.text.toString()
-               var id = id.text.toString()
+               var id = productId.text.toString()
                listener?.onClick(id)
                //Log.i("zzzz","contactListAdapter " + id)
         })*/
@@ -100,6 +106,21 @@ class ProductListAdapter(private val contactItemLayout: Int):
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var name: TextView = itemView.findViewById(R.id.card_product_row)
         var phone: TextView = itemView.findViewById(R.id.phone_number)
+
+        init {
+            /*itemImage = itemView.findViewById(R.id.itemImage)
+            itemTitle = itemView.findViewById(R.id.itemTitle)
+            itemDetail = itemView.findViewById(R.id.itemDetail)*/
+
+            itemView.setOnClickListener { v: View ->
+                var position: Int = getAdapterPosition()
+                Snackbar.make(v, "Click detected on item $position",
+                    Snackbar.LENGTH_LONG).setAction("Action", null).show()
+
+
+
+            }
+        }
         //var id: TextView = itemView.findViewById(R.id.productID)
         //add separate image variable to each card
         //var deleteBtn: ImageView = itemView.findViewById(R.id.deleteBtn)

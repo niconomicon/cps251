@@ -10,4 +10,6 @@
     <string name="deletebutton">deletebutton</string>
     <string name="sort_asc">Asc</string>
     <string name="sort_des">Des</string>
+    <string name="enter_phone">Enter Phone</string>
+    <string name="enter_name">Enter Name</string>
 </resources>

@@ -15,33 +15,30 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp">
+            android:layout_margin="5dp">
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/product_id"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/productID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/not_assigned"
                 android:textSize="18sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp">
+            android:layout_margin="5dp">
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/product_name"
+                android:layout_height="match_parent"
                 android:textSize="18sp" />
 
             <EditText
@@ -49,21 +46,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="@string/enter_name"
                 android:inputType="none"
                 android:textSize="18sp"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck,TextContrastCheck" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp">
+            android:layout_margin="5dp">
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/product_quantity"
+                android:layout_height="match_parent"
                 android:textSize="18sp" />
 
             <EditText
@@ -71,6 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="@string/enter_phone"
                 android:inputType="numberDecimal"
                 android:textSize="18sp"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />

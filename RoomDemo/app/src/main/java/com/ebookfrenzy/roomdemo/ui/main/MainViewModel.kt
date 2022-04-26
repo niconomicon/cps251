@@ -16,15 +16,15 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val allProducts: LiveData<List<Product>>?
     private val searchResults: MutableLiveData<List<Product>>
     //add sort value here
-    private val ascSortedProducts: LiveData<List<Product>>?
-    private val desSortedProducts: LiveData<List<Product>>?
+    private val ascSortedContacts: LiveData<List<Product>>?
+    private val desSortedContacts: LiveData<List<Product>>?
 
     init {
         allProducts = repository.allProducts
         searchResults = repository.searchResults
         //initilaize sort value here with call to Repository
-        ascSortedProducts = repository.ascSortedProducts
-        desSortedProducts = repository.desSortedProducts
+        ascSortedContacts = repository.ascSortedContacts
+        desSortedContacts = repository.desSortedContacts
     }
 
     fun insertProduct(product: Product) {
@@ -33,16 +33,16 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun findProduct(name: String) {
         repository.findProduct(name)
     }
-    fun deleteProduct(name: String) {
-        repository.deleteProduct(name)
+    fun deleteProduct(id: String) {
+        repository.deleteProduct(id)
     }
 
     //add SORT functions here
-    fun getAscSortedProducts(): LiveData<List<Product>>? {
-        return ascSortedProducts
+    fun getAscSortedContacts(): LiveData<List<Product>>? {
+        return ascSortedContacts
     }
-    fun getDesSortedProducts(): LiveData<List<Product>>? {
-        return desSortedProducts
+    fun getDesSortedContacts(): LiveData<List<Product>>? {
+        return desSortedContacts
     }
 
     fun getSearchResults(): MutableLiveData<List<Product>> {

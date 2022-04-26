@@ -14,13 +14,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="101dp"
         android:padding="16dp">
 
         <ImageView
             android:id="@+id/deleteBtn"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="60dp"
+            android:layout_height="57dp"
             android:layout_marginTop="4dp"
             android:contentDescription="@string/deletebutton"
             android:src="@drawable/ic_baseline_delete_24"
@@ -32,9 +32,11 @@
             android:layout_width="236dp"
             android:layout_height="16dp"
             android:layout_marginStart="4dp"
-            android:layout_marginBottom="28dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_product_row" />
 
         <TextView
             android:id="@+id/card_product_row"

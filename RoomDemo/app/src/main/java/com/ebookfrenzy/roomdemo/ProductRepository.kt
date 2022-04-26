@@ -12,8 +12,8 @@ class ProductRepository(application: Application) {
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
     val allProducts: LiveData<List<Product>>?
     //sort
-    val ascSortedProducts: LiveData<List<Product>>?
-    val desSortedProducts: LiveData<List<Product>>?
+    val ascSortedContacts: LiveData<List<Product>>?
+    val desSortedContacts: LiveData<List<Product>>?
 
     init {
         val db: ProductRoomDatabase? =
@@ -21,8 +21,8 @@ class ProductRepository(application: Application) {
         productDao = db?.productDao()
         allProducts = productDao?.getAllProducts()
         //call sort function from Dao
-        ascSortedProducts = productDao?.ascSortProducts()
-        desSortedProducts = productDao?.desSortProducts()
+        ascSortedContacts = productDao?.ascSortContacts()
+        desSortedContacts = productDao?.desSortContacts()
 
     }
 
@@ -34,27 +34,16 @@ class ProductRepository(application: Application) {
     private suspend fun asyncInsert(product: Product) {
         productDao?.insertProduct(product)
     }
-    fun deleteProduct(name: String) {
+    fun deleteProduct(id: String) {
  //   fun deleteProduct(id: Int) {
         coroutineScope.launch(Dispatchers.IO) {
-            asyncDelete(name)
+            asyncDelete(id)
         }
     }
-    private suspend fun asyncDelete(name: String) {
+    private suspend fun asyncDelete(id: String) {
     //private suspend fun asyncDelete(id: Int) {
-        productDao?.deleteProduct(name)
+        productDao?.deleteProduct(id)
     }
-
-    //add sort routines here somewhere
-    /*fun ascSortProducts(name: String) {
-        coroutineScope.launch(Dispatchers.Main) {
-            searchResults.value = asyncFind(name).await()
-        }
-    }
-    private suspend fun asyncFind(name: String): Deferred<List<Product>?> =
-        coroutineScope.async(Dispatchers.IO) {
-            return@async productDao?.findProduct(name)
-        }*/
 
     fun findProduct(name: String) {
         coroutineScope.launch(Dispatchers.Main) {
